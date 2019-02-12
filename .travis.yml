@@ -2,7 +2,7 @@ language: rust
 rust: nightly
 
 install:
-  - cargo install wasm-bindgen-cli --version 0.2.34 # match the version in Cargo.lock
+  - cargo install wasm-bindgen-cli --version 0.2.35 # match the version in Cargo.lock
   - npm install -g npx
   - npm install
   - rustup target add wasm32-unknown-unknown
