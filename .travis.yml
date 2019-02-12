@@ -1,0 +1,12 @@
+language: rust
+rust: nightly
+
+install:
+  - cargo install wasm-bindgen-cli --version 0.2.35 # match the version in Cargo.lock
+  - npm install -g npx
+  - npm install
+  - rustup target add wasm32-unknown-unknown
+script:
+  - cargo +nightly build --target wasm32-unknown-unknown
+  - wasm-bindgen target/wasm32-unknown-unknown/debug/js_hello_world.wasm --out-dir .
+  - npx webpack
